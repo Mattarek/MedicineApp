@@ -3,31 +3,54 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a medicine with a name and associated packages.
+ */
 public class Medicine {
-	// Nazwa leku.
-	private String name;
 
-	// Lista pakietów powiązanych z lekiem.
-	private List<Cardboard> packages;
+	/**
+	 * The name of the medicine.
+	 */
+	private final String name;
 
-	// Konstruktor do tworzenia obiektu Medicine z nazwą leku.
-	public Medicine(String name) {
+	/**
+	 * A list of packages associated with the medicine.
+	 */
+	private final List<Cardboard> packages = new ArrayList<>();
+
+	/**
+	 * Constructs a Medicine object with the given name.
+	 *
+	 * @param name the name of the medicine
+	 */
+	public Medicine(final String name) {
 		this.name = name;
-		this.packages = new ArrayList<>();
 	}
 
-	// Getter do pobierania nazwy leku.
+	/**
+	 * Retrieves the name of the medicine.
+	 *
+	 * @return the name of the medicine
+	 */
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
-	// Getter do pobierania listy pakietów.
+	/**
+	 * Retrieves the list of packages associated with the medicine.
+	 *
+	 * @return the list of packages
+	 */
 	public List<Cardboard> getPackages() {
-		return this.packages;
+		return packages;
 	}
 
-	// Metoda do dodawania pakietu do listy.
-	public void addCardboard(Cardboard packageForMedicine) {
+	/**
+	 * Adds a package to the list of packages.
+	 *
+	 * @param packageForMedicine the package to add
+	 */
+	public void addCardboard(final Cardboard packageForMedicine) {
 		packages.add(packageForMedicine);
 	}
 }

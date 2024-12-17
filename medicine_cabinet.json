@@ -12,22 +12,25 @@
     "packages": [
       {
         "expirationDate": "2024-11-15"
+      },
+      {
+        "expirationDate": "2030-01-15"
       }
     ]
   },
   {
-    "name": "ibu",
+    "name": "Ibuprofen",
     "packages": [
       {
-        "expirationDate": "2025-01-01"
+        "expirationDate": "2029-11-15"
       }
     ]
   },
   {
-    "name": "ezz",
+    "name": "Ibuprofen",
     "packages": [
       {
-        "expirationDate": "2025-04-04"
+        "expirationDate": "2027-11-15"
       }
     ]
   }

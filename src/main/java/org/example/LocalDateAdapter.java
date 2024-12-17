@@ -12,17 +12,40 @@ import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * A Gson adapter for serializing and deserializing {@link LocalDate} objects.
+ */
 public class LocalDateAdapter implements JsonSerializer<LocalDate>, JsonDeserializer<LocalDate> {
+
+	/**
+	 * Formatter for converting {@link LocalDate} to and from ISO-8601 date strings.
+	 */
 	private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE;
 
+	/**
+	 * Serializes a {@link LocalDate} object to its JSON representation as a string.
+	 *
+	 * @param src       the {@link LocalDate} to serialize
+	 * @param typeOfSrc the type of the source object
+	 * @param context   the context for serialization
+	 * @return a {@link JsonElement} representing the serialized {@link LocalDate}
+	 */
 	@Override
-	public JsonElement serialize(LocalDate src, Type typeOfSrc, JsonSerializationContext context) {
+	public JsonElement serialize(final LocalDate src, final Type typeOfSrc, final JsonSerializationContext context) {
 		return new JsonPrimitive(FORMATTER.format(src));
 	}
 
+	/**
+	 * Deserializes a JSON string into a {@link LocalDate} object.
+	 *
+	 * @param json    the JSON element to deserialize
+	 * @param typeOfT the type of the target object
+	 * @param context the context for deserialization
+	 * @return the deserialized {@link LocalDate} object
+	 * @throws JsonParseException if the JSON element is not a valid date string
+	 */
 	@Override
-	public LocalDate deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-		// Parsujemy wartość daty z formatu String na obiekt LocalDate.
+	public LocalDate deserialize(final JsonElement json, final Type typeOfT, final JsonDeserializationContext context) throws JsonParseException {
 		return LocalDate.parse(json.getAsString(), FORMATTER);
 	}
 }
